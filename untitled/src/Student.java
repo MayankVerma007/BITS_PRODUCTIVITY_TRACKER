@@ -1,9 +1,15 @@
+import javax.sound.midi.SysexMessage;
+import java.util.List;
+import java.util.Scanner;
+
 public class Student {
     private String name;
     private String password;
     private String bitsId;
     private float CGPA;
+
     private TimeTable TT;
+
     private List<QuickNotes> QNLIST;
 
     public Student(String name,String password,String bitsId,float CGPA){
@@ -47,11 +53,20 @@ public class Student {
                 return("");
         }
     }
+
+    public TimeTable getTT() {
+        return this.TT;
+    }
+
+    public void setTT(TimeTable TT) {
+        this.TT = TT;
+    }
+
     public String getBranch(){
         String a = getBranchCode(this.bitsId.substring(4,6));
         String b = getBranchCode(this.bitsId.substring(6,8));
         return (a+" "+b);
-        }
+    }
 
     public String getYear() {
         switch(this.bitsId.substring(0,4)){
@@ -70,12 +85,17 @@ public class Student {
         }
     }
 
+
     public static void main(String[] args) {
         String a = "2020AAPS0841P";
         String c = a.substring(4,8);
         String b = "A";
         float e = (float) 9.16;
-        Student Mayank = new Student(c,c,a,e);
-        System.out.println(Mayank.getBranch());
+//        Student Mayank = new Student(c,c,a,e);
+//        System.out.println(Mayank.getBranch());
+
+        Student fahd = new Student(c,c,a,e);
+        fahd.getTT().editTimeTable();
     }
+
 }

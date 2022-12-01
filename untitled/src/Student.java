@@ -94,8 +94,11 @@ public class Student {
 //        Student Mayank = new Student(c,c,a,e);
 //        System.out.println(Mayank.getBranch());
 
-        Student fahd = new Student(c,c,a,e);
-        fahd.getTT().editTimeTable();
+        Student.TT.editTimeTable();
+        Student.TT.editTimeTable();
+        System.out.println(Student.TT.getCourse(0).getLectureInstructor());
+        
+        
     }
 
 }

@@ -17,19 +17,16 @@ public class Course {
     private int labSection;
     private int labHour;
 
+    private int courseIndex;
 
 
-//    public Course(int courseUnits, int[] lectureHours, int tutorialSection, int lectureSection, int tutorialHour, int labSection, int labHour) {
-//        this.courseUnits = courseUnits;
-//        this.lectureHours = lectureHours;
-//        this.tutorialSection = tutorialSection;
-//        this.lectureSection = lectureSection;
-//        this.tutorialHour = tutorialHour;
-//        this.labHour = labHour;
-//        this.labSection = labSection;
-//    }
+    public int getCourseIndex() {
+        return courseIndex;
+    }
 
-
+    public void setCourseIndex(int courseIndex) {
+        this.courseIndex = courseIndex;
+    }
 
     public String getCourseTitle() {
         return courseTitle;
@@ -111,17 +108,13 @@ public class Course {
         this.labHour = labHour;
     }
 
-    public Course toAddNewCourse()
+    public void toAddNewCourse()
     {
-
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter course details-");
         //Course instructor
         System.out.print("Enter lecture Instructor");
         this.lectureInstructor = sc.nextLine();
-        //tut instructor
-        System.out.print("Enter tut instructor");
-        this.tutInstructor = sc.nextLine();
         //course name
         System.out.print("Course Name-");
         this.courseTitle = sc.nextLine();
@@ -152,6 +145,9 @@ public class Course {
                 //tutorial section and hour
                 this.tutorialSection= Integer.parseInt(details.split(" ",0)[0]);
                 this.tutorialHour = Integer.parseInt(details.split(" ",0)[1]);
+                //tut instructor
+                System.out.print("Enter tut instructor");
+                this.tutInstructor = sc.nextLine();
                 break;
             default:
                 break;
@@ -170,10 +166,7 @@ public class Course {
             default:
                 break;
         }
-        System.out.println("Course Sucessfully Created");
-
-        return this;
-
     }
 }
+
 

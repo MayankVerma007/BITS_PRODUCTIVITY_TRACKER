@@ -10,7 +10,7 @@ public class Course {
     private int tutorialHour; //Mentioned as "Day-Hour"
     //private String lectureInstructor;
     //private String tutInstructor;
-    private int labSection;
+    private int labSection ;
     private int labHour;
 
 
@@ -75,6 +75,21 @@ public class Course {
         this.tutorialHour = tutorialHour;
     }
 
+//    public String getLectureInstructor() {
+//        return lectureInstructor;
+//    }
+
+//    public void setLectureInstructor(String lectureInstructor) {
+//        this.lectureInstructor = lectureInstructor;
+//    }
+
+//    public String getTutInstructor() {
+//        return tutInstructor;
+//    }
+
+//    public void setTutInstructor(String tutInstructor) {
+//        this.tutInstructor = tutInstructor;
+//    }
 
     public int getLabSection() {
         return labSection;
@@ -125,31 +140,29 @@ public class Course {
         System.out.println("Tutorial Exists? Yes/No");
 
         String ans = sc.nextLine();
-        switch(ans)
+        if ("Yes".equals(ans)) {
+            System.out.println("Enter tut section and hour.");
+            String details = sc.nextLine();
+            //tutorial section and hour
+            this.tutorialSection = Integer.parseInt(details.split(" ", 0)[0]);
+            this.tutorialHour = Integer.parseInt(details.split(" ", 0)[1]);
+        }
+        else if("No".equals(ans))
         {
-            case "Yes":
-                System.out.println("Enter tut section and hour.");
-                String details = sc.nextLine();
-                //tutorial section and hour
-                this.tutorialSection= Integer.parseInt(details.split(" ",0)[0]);
-                this.tutorialHour = Integer.parseInt(details.split(" ",0)[1]);
-                break;
-            default:
-                break;
+            this.tutorialSection = 0;
+            this.tutorialHour = 0;
         }
         System.out.println("Lab Exists? Yes/No");
         ans = sc.nextLine();
-        switch(ans)
-        {
-            case "Yes":
-                System.out.println("Enter lab section.");
-                String details = sc.nextLine();
-                //lab section and hour
-                this.labSection = Integer.parseInt(details.split(" ",0)[0]);
-                this.labHour = Integer.parseInt(details.split(" ",0)[1]);
-                break;
-            default:
-                break;
+        if ("Yes".equals(ans)) {
+            System.out.println("Enter lab section.");
+            String details = sc.nextLine();
+            //lab section and hour
+            this.labSection = Integer.parseInt(details.split(" ", 0)[0]);
+            this.labHour = Integer.parseInt(details.split(" ", 0)[1]);
+        } else if ("No".equals(ans)){
+            this.labSection = 0;
+            this.labHour = 0;
         }
         System.out.println("Course Sucessfully Created");
 

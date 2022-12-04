@@ -57,6 +57,23 @@ public class TimeTable {
         }
     }
 
+    public void displayTT()
+    {
+        Iterator<Course> itr = courseList.listIterator();
+        while(itr.hasNext())
+        {
+            Course next = itr.next();
+            System.out.println("Course Name - " + next.getCourseTitle());
+            System.out.println("Course Units - " + next.getCourseUnits());
+            System.out.println("Lecture Section - "+ next.getLectureSection());
+            System.out.println("Tutorial Section - "+next.getTutorialSection());
+            System.out.println("Tutorial Hour - " + next.getTutorialHour());
+            System.out.println("Lab Section - " +next.getLabSection());
+            System.out.println("Lab Hour - "+next.getLabHour());
+            System.out.println("\n \n");
+        }
+    }
+
 
     public Course getCourse(int index) {
         return courseList.get(index);

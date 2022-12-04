@@ -4,19 +4,24 @@ import java.util.Scanner;
 
 public class Student {
     private String name;
-    private String password;
+    //private String password;
     private String bitsId;
     private float CGPA;
 
-    private TimeTable TT;
+    private TimeTable TT = new TimeTable();
 
-    private List<QuickNotes> QNLIST;
+    private QuickNotesList QNLIST = new QuickNotesList();
+    private CourseMain CM = new CourseMain();
 
-    public Student(String name,String password,String bitsId,float CGPA){
+    public Student(String name,String bitsId,float CGPA){
         this.name = name;
-        this.password = password;
         this.bitsId = bitsId;
         this.CGPA = CGPA;
+    }
+    public Student(){
+        this.name = "";
+        this.bitsId = "";
+        this.CGPA  = 0;
     }
 
     public String getBranchCode(String x){
@@ -57,6 +62,9 @@ public class Student {
     public TimeTable getTT() {
         return this.TT;
     }
+    public CourseMain getCM(){return this.CM;}
+    public QuickNotesList getQNLIST(){return this.QNLIST;}
+
 
     public void setTT(TimeTable TT) {
         this.TT = TT;
@@ -84,6 +92,20 @@ public class Student {
                 return("Null");
         }
     }
+    public void displayNotes(QuickNotesList quickNotesList){
+        System.out.println(quickNotesList);
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public void setBitsId(String bitsId){
+        this.bitsId = bitsId;
+    }
+    public void setCGPA(float CGPA){
+        this.CGPA = CGPA;
+    }
+
+
 
 
     public static void main(String[] args) {
@@ -94,11 +116,8 @@ public class Student {
 //        Student Mayank = new Student(c,c,a,e);
 //        System.out.println(Mayank.getBranch());
 
-        Student.TT.editTimeTable();
-        Student.TT.editTimeTable();
-        System.out.println(Student.TT.getCourse(0).getLectureInstructor());
-        
-        
+        Student fahd = new Student(c,a,e);
+        fahd.getTT().editTimeTable();
     }
 
 }

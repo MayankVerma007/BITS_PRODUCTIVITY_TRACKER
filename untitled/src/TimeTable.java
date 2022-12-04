@@ -32,7 +32,6 @@ public class TimeTable {
                 }
                 break;
 
-
             case ("Remove"):
                 Iterator<Course> itr2 = courseList.listIterator();
                 boolean absent = false;
@@ -66,5 +65,3 @@ public class TimeTable {
 
 
 }
-
-
